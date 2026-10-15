@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html  dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>نظام الاستعلام عن حالة الطلبة</h1>
+
+
+<!--  
+<fieldset>
+
+
+    <legend><h3>الاستعلام عن طريق :</h3></legend>
+    <div>
+      <input type="radio" id="sname" name="name" value="Sname" />
+      <label for="sname">اسم الطالب</label>
+
+      <input type="radio" id="cid" name="contact" value="Cid" />
+      <label for="cid">الرقم المدني</label>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+
+</fieldset>
+
+  -->
+
+    <form id="myForm" method="get">
+      <input type="number" id="cid" name="cid" placeholder="ادخل رقم الطالب المدني"><br>
+      <input id="search" type="submit" value="SEARCH" formaction="/search">
+    </form>     
+
+
+    <table>
+      <tr>
+        <th>اسم الطالب</th>
+        <th>حالة الطالب</th>
+        <th>المطالبات المالية</th>
+        <th>اخر تحديث</th>
+      </tr>
+    <ul id="postsList">
+      <% students.forEach(student=> { %>    
+
+      <tr>
+        <td><%=student.StudentName%></td>
+        <td><%=student.Status %></td>
+        <td> <%=student.Debt%></td>
+        <td> <%=student.UpdateDate%> </td>
+      </tr>
+
+
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+
+
+
+  
+</body>
+
+</html>
