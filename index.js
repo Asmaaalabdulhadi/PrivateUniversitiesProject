@@ -44,7 +44,25 @@ app.get("/students", (req, res) => {
 
 // GET a specific student by id
 app.get("/students/:cid", (req, res) => {
+  console.log("in student");
+
   const student = students.find((s) => s.cid === parseInt(req.params.cid));
+  
+  if (!student) return res.status(404).json({ message: "students not found" });
+  console.log(student);
+  res.json(student);
+});
+
+
+// GET a specific student by id
+app.get("/search", (req, res) => {
+
+  console.log("in search");
+
+  const searchTerm = req.query.cid; 
+  console.log("search:", searchTerm);
+
+  const student = students.find((s) => s.search === parseInt(req.params.cid));
   
   if (!student) return res.status(404).json({ message: "students not found" });
   console.log(student);
